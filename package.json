@@ -1,0 +1,39 @@
+{
+  "name": "@lawandorga/components",
+  "description": "Reusable components within the Law&Orga space.",
+  "version": "1.0.0",
+  "author": "Daniel Mössner",
+  "homepage": "https://github.com/lawandorga/lawandorga-components#readme",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lawandorga/lawandorga-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lawandorga/lawandorga-components/issues"
+  },
+  "peerDependencies": {
+    "@headlessui/vue": "1.x",
+    "vue": "3.x"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.11.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "rollup": "^2.70.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-vue": "^6.0.0",
+    "typescript": "^4.6.2"
+  }
+}
