@@ -1,5 +1,6 @@
 import vue from "rollup-plugin-vue";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import typescript from "rollup-plugin-typescript2";
 
 export default [
   {
@@ -14,6 +15,6 @@ export default [
         file: "dist/index.cjs",
       },
     ],
-    plugins: [vue(), peerDepsExternal()],
+    plugins: [vue(), typescript(), peerDepsExternal()],
   },
 ];
