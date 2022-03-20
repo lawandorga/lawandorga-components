@@ -6,7 +6,6 @@ module.exports = {
     "./docs/.vuepress/**/*.{vue,js,ts,jsx,tsx}",
   ],
   darkMode: "class",
-  mode: "jit",
   theme: {
     extend: {
       colors: {
@@ -23,9 +22,6 @@ module.exports = {
           800: "#0a2027",
           900: "#010203",
         },
-      },
-      extend: {
-        backgroundColor: ["odd", "even", "checked", "focus"],
       },
       typography: (theme) => ({
         DEFAULT: {
