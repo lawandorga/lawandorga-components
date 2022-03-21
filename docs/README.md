@@ -1,9 +1,7 @@
-# Law&Orga Component Library
+# Home
 
-Use at your peril.
+**Law&Orga Components Library** is a styled components library partially based on Headless UI. It should be used within the Law&Orga frontends and needs Tailwind CSS to run. However, if you think it's useful for you feel free to use it.
 
-## Installation
+## Repository
+[https://github.com/lawandorga/lawandorga-components](https://github.com/lawandorga/lawandorga-components)
 
-`
-npm install @lawandorga/components
-`

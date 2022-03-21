@@ -11,8 +11,10 @@ export const pagesData = {
   "v-29c8a06a": () => import(/* webpackChunkName: "v-29c8a06a" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/components/table-table.html.js").then(({ data }) => data),
   // path: /components/table.html
   "v-df88a5ea": () => import(/* webpackChunkName: "v-df88a5ea" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/components/table.html.js").then(({ data }) => data),
-  // path: /setup/installation.html
-  "v-68bc74b4": () => import(/* webpackChunkName: "v-68bc74b4" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/setup/installation.html.js").then(({ data }) => data),
+  // path: /getting-started/installation.html
+  "v-4e8563af": () => import(/* webpackChunkName: "v-4e8563af" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/getting-started/installation.html.js").then(({ data }) => data),
+  // path: /getting-started/use.html
+  "v-33e680e2": () => import(/* webpackChunkName: "v-33e680e2" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/getting-started/use.html.js").then(({ data }) => data),
   // path: /404.html
   "v-3706649a": () => import(/* webpackChunkName: "v-3706649a" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/404.html.js").then(({ data }) => data),
 }

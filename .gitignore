@@ -42,3 +42,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# vuepress
+.temp
+.cache

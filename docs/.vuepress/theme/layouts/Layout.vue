@@ -8,7 +8,7 @@ import Sidebar from "../components/Sidebar.vue";
   </nav>
   <main class="flex">
     <Sidebar />
-    <article class="pl-72 w-full pt-12">
+    <article class="pl-72 w-full pt-12 pb-32">
       <div class="px-6 py-10 mx-auto prose dark:prose-invert">
         <Content />
       </div>

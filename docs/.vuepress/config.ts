@@ -10,8 +10,8 @@ export default {
     sidebarDepth: 1,
     sidebar: [
       {
-        text: "Setup",
-        children: ["/setup/installation"],
+        text: "Getting Started",
+        children: ["/getting-started/installation", "/getting-started/use"],
       },
       {
         text: "Components",

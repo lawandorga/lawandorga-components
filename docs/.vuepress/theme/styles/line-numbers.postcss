@@ -1,11 +1,11 @@
 div[class*='language-'] {
-  @apply relative;
+  @apply relative flex flex-row-reverse justify-end;
 
   pre, pre[class*='language-'] {
-      @apply pl-14 border-l text-sm font-mono rounded;
+      @apply pl-3 pr-4 text-sm font-mono my-0 rounded-l-none rounded-r;
     }
   .line-numbers {
-    @apply rounded px-2 absolute top-0 text-right left-0 text-gray-500 font-mono text-sm py-[14px] border-gray-600 border-r;
+    @apply rounded-l px-2 text-right text-gray-500 font-mono text-sm py-[14px] border-gray-600 border-r;
     background: #111b27;
   }
 }

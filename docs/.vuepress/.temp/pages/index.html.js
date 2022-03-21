@@ -1,15 +1,15 @@
 export const data = {
   "key": "v-8daa1a0e",
   "path": "/",
-  "title": "Law&Orga Component Library",
+  "title": "Home",
   "lang": "en-US",
   "frontmatter": {},
   "excerpt": "",
   "headers": [
     {
       "level": 2,
-      "title": "Installation",
-      "slug": "installation",
+      "title": "Repository",
+      "slug": "repository",
       "children": []
     }
   ]

@@ -6,14 +6,13 @@ npm install @lawandorga/components
 
 ## Setup
 
-Setup [TailwindCSS](https://tailwindcss.com/docs/installation) according to the docs and use the follwing config. You need to change the content setting according to your project.
+Setup Tailwind CSS according to their [docs](https://tailwindcss.com/docs/installation) and use the following config. You need to change the content settings according to your project. But leave `node_modules/@lawandorga/components/dist/index.mjs` there, because Tailwind CSS should not purge the css classes of the components library.
 
 ``` js
-const colors = require("tailwindcss/colors");  // eslint-disable-line
-
 module.exports = {
   content: [
     "...",
+    "node_modules/@lawandorga/components/dist/index.mjs",
   ],
   darkMode: "class",
   theme: {
@@ -33,7 +32,7 @@ module.exports = {
           900: "#010203",
         },
       },
-      typography: (theme) => ({
+      typography: (theme: any) => ({  // eslint-disable-line
         DEFAULT: {
           css: {
             table: {},
@@ -49,8 +48,8 @@ module.exports = {
             th: {
               verticalAlign: "bottom",
               borderWidth: "2px",
-              borderColor: theme("colors.gray.400", colors.gray[400]),
-              backgroundColor: theme("colors.gray.200", colors.gray[200]),
+              borderColor: theme("colors.gray[400]"),
+              backgroundColor: theme("colors.gray[200]"),
               padding: "4px 8px",
             },
             "th > p, td > p": {
@@ -59,8 +58,8 @@ module.exports = {
             td: {
               verticalAlign: "top",
               borderWidth: "2px",
-              borderColor: theme("colors.gray.300", colors.gray[300]),
-              backgroundColor: theme("colors.gray.100", colors.gray[100]),
+              borderColor: theme("colors.gray[300]"),
+              backgroundColor: theme("colors.gray[100]"),
             },
             "tbody td:first-child": {
               paddingLeft: "auto",
@@ -78,10 +77,17 @@ module.exports = {
 };
 ```
 
-## Use
+## Shortcut
 
-```vue
-<script setup lang="ts">
-    import ButtonNormal from "@lawandorga/components";
-</script>
+You can also use `getTailwindConfig` and do the following in your `tailwind.config.js`:
+
+```js
+import getTailwindConfig from "@lawandorga/components";
+
+content = [
+  "./src/**/*.{vue,js,ts,jsx,tsx}",
+]
+
+module.exports = getTailwindConfig(content)
 ```
+

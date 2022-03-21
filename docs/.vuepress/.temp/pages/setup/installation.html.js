@@ -8,6 +8,19 @@ export const data = {
   "headers": [
     {
       "level": 2,
+      "title": "Setup",
+      "slug": "setup",
+      "children": [
+        {
+          "level": 3,
+          "title": "Shortcut",
+          "slug": "shortcut",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 2,
       "title": "Use",
       "slug": "use",
       "children": []

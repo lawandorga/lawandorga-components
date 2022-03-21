@@ -3,9 +3,10 @@ export const themeData = {
   "sidebarDepth": 1,
   "sidebar": [
     {
-      "text": "Setup",
+      "text": "Getting Started",
       "children": [
-        "/setup/installation"
+        "/getting-started/installation",
+        "/getting-started/use"
       ]
     },
     {

@@ -5,7 +5,7 @@ import { computed, ref, toRefs } from "vue";
 import type { PropType } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { ResolvedSidebarItem } from "../types/nav";
-import { isActiveSidebarItem } from "../utils/isActiveSidebarItem";
+import { isActiveSidebarItem } from "../utils";
 
 const props = defineProps({
   item: {
@@ -34,14 +34,6 @@ const itemClass = computed(() => ({
   "font-medium": isActive.value && (depth.value === 2 || depth.value === 3),
   "text-gray-800": isActive.value,
   // collapsible: item.value.collapsible,
-}));
-
-const liClass = computed(() => ({
-  "space-y-3": true,
-  "text-lg font-bold text-gray-800": depth.value === 0,
-  "border-l-4 border-transparent": depth.value === 1,
-  "border-gray-600": isActive.value,
-  collapsible: item.value.collapsible,
 }));
 
 const isOpen = ref(true);

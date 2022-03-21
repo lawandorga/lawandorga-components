@@ -13,8 +13,10 @@ export const pagesComponents = {
   "v-29c8a06a": defineAsyncComponent(() => import(/* webpackChunkName: "v-29c8a06a" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/components/table-table.html.vue")),
   // path: /components/table.html
   "v-df88a5ea": defineAsyncComponent(() => import(/* webpackChunkName: "v-df88a5ea" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/components/table.html.vue")),
-  // path: /setup/installation.html
-  "v-68bc74b4": defineAsyncComponent(() => import(/* webpackChunkName: "v-68bc74b4" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/setup/installation.html.vue")),
+  // path: /getting-started/installation.html
+  "v-4e8563af": defineAsyncComponent(() => import(/* webpackChunkName: "v-4e8563af" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/getting-started/installation.html.vue")),
+  // path: /getting-started/use.html
+  "v-33e680e2": defineAsyncComponent(() => import(/* webpackChunkName: "v-33e680e2" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/getting-started/use.html.vue")),
   // path: /404.html
   "v-3706649a": defineAsyncComponent(() => import(/* webpackChunkName: "v-3706649a" */"/Users/danielmossner/Documents/lawandorga-components/docs/.vuepress/.temp/pages/404.html.vue")),
 }
