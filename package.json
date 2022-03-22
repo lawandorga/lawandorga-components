@@ -1,7 +1,7 @@
 {
   "name": "@lawandorga/components",
   "description": "Reusable components within the Law&Orga space.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Daniel Mössner",
   "homepage": "https://github.com/lawandorga/lawandorga-components#readme",
   "main": "dist/index.cjs",
@@ -25,7 +25,8 @@
   },
   "peerDependencies": {
     "@headlessui/vue": "1.x",
-    "vue": "3.x"
+    "vue": "3.x",
+    "@heroicons/vue": "^1.0.6"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",
@@ -36,7 +37,6 @@
     "@vue/component-compiler-utils": "^3.3.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^10.0.0",
-    "@vuepress/bundler-vite": "^2.0.0-beta.36",
     "@vuepress/plugin-register-components": "^2.0.0-beta.36",
     "autoprefixer": "^10.4.4",
     "eslint": "^8.11.0",
