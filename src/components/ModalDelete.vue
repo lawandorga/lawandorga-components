@@ -95,7 +95,7 @@ import {
   DialogOverlay,
   DialogTitle,
 } from "@headlessui/vue";
-import ButtonBlue from "@/components/ButtonNormal.vue";
+import ButtonBlue from "./ButtonNormal.vue";
 import { JsonModel, RequestFunction } from "@/types/shared";
 import { XIcon } from "@heroicons/vue/outline";
 

@@ -43,11 +43,6 @@
           :options="field.options ?? []"
           @update:model-value="showSuccess = false"
         />
-        <FormTiptap
-          v-else-if="field.type === 'tiptap'"
-          v-model="data[field.name]"
-          :room="field.room"
-        />
         <FormList
           v-else-if="field.type === 'list'"
           v-model="data[field.name]"
@@ -126,12 +121,10 @@ import FormSelect from "./FormSelect.vue";
 import ButtonBlue from "./ButtonNormal.vue";
 import { FormField } from "@/types/form";
 import { defineComponent, PropType } from "vue";
-import FormTiptap from "./FormTiptap.vue";
-import { DjangoError, JsonModel } from "@/types/shared";
-import { AxiosError } from "axios";
+import { JsonModel } from "@/types/shared";
 import FormMultiple from "./FormMultiple.vue";
 import FormList from "./FormList.vue";
-import FormCheckbox from "@/components/FormCheckbox.vue";
+import FormCheckbox from "./FormCheckbox.vue";
 
 export default defineComponent({
   components: {
@@ -140,7 +133,6 @@ export default defineComponent({
     FormSelect,
     FormInput,
     FormTextarea,
-    FormTiptap,
     FormMultiple,
     FormList,
   },
@@ -185,7 +177,7 @@ export default defineComponent({
     return {
       showSuccess: false,
       nonFieldErrors: [] as string[],
-      errors: {} as DjangoError,
+      errors: {},
       data: {} as JsonModel,
       loading: false,
     };
@@ -226,7 +218,8 @@ export default defineComponent({
       }
       this.request(requestData)
         .then((data: JsonModel) => this.handleSuccess(data))
-        .catch((error: AxiosError<DjangoError>) =>
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .catch((error: any) =>
           this.handleError(error.response ? error.response.data : {}),
         );
     },
@@ -235,7 +228,8 @@ export default defineComponent({
       this.loading = false;
       this.$emit("success", data);
     },
-    handleError(errors: DjangoError) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    handleError(errors: any) {
       if (errors.detail) {
         this.nonFieldErrors = [errors.detail as string];
       } else {

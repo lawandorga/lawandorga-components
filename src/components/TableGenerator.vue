@@ -2,7 +2,7 @@
   <Table>
     <Thead>
       <Tr class="divide-x divide-gray-200">
-        <Th v-for="item in head" :key="item.key">
+        <Th v-for="item in head" :key="item.name">
           <div v-if="item.key === 'action'" class="flex justify-end space-x-3">
             <slot :name="`head-${item.key}`" />
           </div>
@@ -18,7 +18,7 @@
         :key="index"
         class="divide-x divide-gray-100"
       >
-        <Td v-for="headItem in head" :key="headItem.key">
+        <Td v-for="headItem in head" :key="headItem.name">
           <div
             v-if="headItem.key === 'action'"
             class="flex justify-end space-x-3"
@@ -53,12 +53,8 @@ import Thead from "./TableHeader.vue";
 import Tr from "./TableRow.vue";
 import Th from "./TableHead.vue";
 import { defineComponent, PropType } from "vue";
-import { JsonModel } from "@/types/shared";
+import { JsonModel } from "../types/shared";
 import CircleLoader from "./CircleLoader.vue";
-
-interface NestedObject {
-  [key: string]: string | NestedObject;
-}
 
 type KeyFunction = (_: JsonModel) => string | number | boolean;  // eslint-disable-line
 
@@ -75,7 +71,7 @@ export default defineComponent({
   props: {
     head: {
       type: Array as PropType<
-        { key: NestedObject | KeyFunction; name: string }[]
+        { key: string[] | KeyFunction | string; name: string }[]
       >,
       required: true,
     },
@@ -97,15 +93,22 @@ export default defineComponent({
   },
   methods: {
     getData(
-      data: NestedObject,
+      data: JsonModel,
       key: string | string[] | KeyFunction,
     ): string | number | boolean {
       if (typeof key === "function") {
         return key(data);
       } else if (Array.isArray(key)) {
-        let newData = data as NestedObject | string | number | boolean;
+        let newData = data as
+          | JsonModel
+          | string
+          | number
+          | boolean
+          | null
+          | string[]
+          | number[];
         key.forEach((key) => {
-          if (newData) newData = (newData as NestedObject)[key];
+          if (newData) newData = (newData as JsonModel)[key];
           else return "";
         });
         return newData as unknown as string | number | boolean;
