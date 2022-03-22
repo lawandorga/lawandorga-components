@@ -1,7 +1,7 @@
 {
   "name": "@lawandorga/components",
   "description": "Reusable components within the Law&Orga space.",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "author": "Daniel Mössner",
   "homepage": "https://github.com/lawandorga/lawandorga-components#readme",
   "main": "dist/index.cjs",
