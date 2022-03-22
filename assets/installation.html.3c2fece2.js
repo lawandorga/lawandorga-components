@@ -1,0 +1,1 @@
+const t={key:"v-4e8563af",path:"/getting-started/installation.html",title:"Installation",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Setup",slug:"setup",children:[]},{level:2,title:"Shortcut",slug:"shortcut",children:[]}]};export{t as data};

@@ -1,0 +1,1 @@
+const e={key:"v-29f71b2e",path:"/components/circle-loader.html",title:"CircleLoader.vue",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Code",slug:"code",children:[]}]};export{e as data};

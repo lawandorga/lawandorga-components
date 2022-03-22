@@ -1,0 +1,1 @@
+import{o as r,b as o,i as t}from"./app.2d6b4786.js";import{_ as a}from"./plugin-vue_export-helper.21dcd24c.js";const s={},n={class:"tailwind"};function c(e,i){return r(),o("div",n,[t(e.$slots,"default")])}var d=a(s,[["render",c]]);export{d as default};

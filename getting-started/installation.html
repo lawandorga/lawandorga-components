@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.36">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <title>Installation | Law&Orga Components Library</title><meta name="description" content="Reusable components from Law&Orga.">
+    <link rel="modulepreload" href="/assets/app.2d6b4786.js"><link rel="modulepreload" href="/assets/installation.html.3c2fece2.js"><link rel="modulepreload" href="/assets/installation.html.35edff28.js"><link rel="modulepreload" href="/assets/plugin-vue_export-helper.21dcd24c.js">
+    <link rel="stylesheet" href="/assets/style.57823272.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><!--[--><nav class="w-full fixed h-12 border-b flex items-center px-6 bg-white z-10"><a href="/" class="text-2xl font-bold">Law&amp;Orga</a></nav><main class="flex"><aside class="sidebar pt-24 border-r w-72 fixed top-12 bottom-0 pb-24 overflow-y-auto"><!--[--><!--]--><ul class="space-y-10"><!--[--><li><p tabindex="0" class="border-transparent border-l-4 w-full block text-gray-500 px-4 text-lg font-bold mb-3 text-gray-800">Getting Started <!----></p><!--[--><ul style="" class="space-y-1"><!--[--><li><a aria-current="page" href="/getting-started/installation.html" class="router-link-active router-link-exact-active router-link-active border-transparent border-l-4 w-full block text-gray-500 px-6 text-base tracking-wide py-1 font-medium border-gray-600 text-gray-800" aria-label="Installation"><!--[--><!--]--> Installation <!--[--><!--]--></a><!--[--><ul style="" class="space-y-1"><!--[--><li><a aria-current="page" href="/getting-started/installation.html#setup" class="router-link-active router-link-exact-active border-transparent border-l-4 w-full block text-gray-500 px-10 tracking-wide py-0.5 text-sm" aria-label="Setup"><!--[--><!--]--> Setup <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/getting-started/installation.html#shortcut" class="router-link-active router-link-exact-active border-transparent border-l-4 w-full block text-gray-500 px-10 tracking-wide py-0.5 text-sm" aria-label="Shortcut"><!--[--><!--]--> Shortcut <!--[--><!--]--></a><!----></li><!--]--></ul><!--]--></li><li><a href="/getting-started/use.html" class="border-transparent border-l-4 w-full block text-gray-500 px-6 text-base tracking-wide py-1" aria-label="Use"><!--[--><!--]--> Use <!--[--><!--]--></a><!----></li><!--]--></ul><!--]--></li><li><p tabindex="0" class="border-transparent border-l-4 w-full block text-gray-500 px-4 text-lg font-bold mb-3">Components <!----></p><!--[--><ul style="" class="space-y-1"><!--[--><li><a href="/components/buttons.html" class="border-transparent border-l-4 w-full block text-gray-500 px-6 text-base tracking-wide py-1" aria-label="Buttons"><!--[--><!--]--> Buttons <!--[--><!--]--></a><!----></li><li><a href="/components/circle-loader.html" class="border-transparent border-l-4 w-full block text-gray-500 px-6 text-base tracking-wide py-1" aria-label="CircleLoader.vue"><!--[--><!--]--> CircleLoader.vue <!--[--><!--]--></a><!----></li><li><a href="/components/table.html" class="border-transparent border-l-4 w-full block text-gray-500 px-6 text-base tracking-wide py-1" aria-label="Table"><!--[--><!--]--> Table <!--[--><!--]--></a><!----></li><!--]--></ul><!--]--></li><!--]--></ul><!--[--><!--]--></aside><article class="pl-72 w-full pt-12 pb-32"><div class="px-6 py-10 mx-auto prose dark:prose-invert"><!--[--><h1 id="installation" tabindex="-1"><a class="header-anchor" href="#installation" aria-hidden="true">#</a> Installation</h1><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> @lawandorga/components
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div><p>You also need to install the peer dependencies that those components need:</p><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> @headlessui/vue @heroicons/vue
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div><p>You also need the additional Tailwind CSS packages:</p><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> @tailwindcss/line-clamp @tailwindcss/typography
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br></div></div><h2 id="setup" tabindex="-1"><a class="header-anchor" href="#setup" aria-hidden="true">#</a> Setup</h2><p>Setup Tailwind CSS according to their <a href="https://tailwindcss.com/docs/installation" target="_blank" rel="noopener noreferrer">docs</a> and use the following config. You need to change the content settings according to your project. But leave <code>node_modules/@lawandorga/components/dist/index.mjs</code> there, because Tailwind CSS should not purge the css classes of the components library.</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">content</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token string">&quot;...&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;node_modules/@lawandorga/components/dist/index.mjs&quot;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">darkMode</span><span class="token operator">:</span> <span class="token string">&quot;class&quot;</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">theme</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">extend</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">colors</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">lorgablue</span><span class="token operator">:</span> <span class="token string">&quot;#003c4d&quot;</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">blue</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token number">50</span><span class="token operator">:</span> <span class="token string">&quot;#eff9fb&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">100</span><span class="token operator">:</span> <span class="token string">&quot;#d0e7ed&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">200</span><span class="token operator">:</span> <span class="token string">&quot;#aad0db&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">300</span><span class="token operator">:</span> <span class="token string">&quot;#8abbc9&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">400</span><span class="token operator">:</span> <span class="token string">&quot;#6ca7b7&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">500</span><span class="token operator">:</span> <span class="token string">&quot;#428193&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">600</span><span class="token operator">:</span> <span class="token string">&quot;#275f6f&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">700</span><span class="token operator">:</span> <span class="token string">&quot;#153f4b&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">800</span><span class="token operator">:</span> <span class="token string">&quot;#0a2027&quot;</span><span class="token punctuation">,</span>
+          <span class="token number">900</span><span class="token operator">:</span> <span class="token string">&quot;#010203&quot;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">typography</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token literal-property property">theme</span><span class="token operator">:</span> any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>  <span class="token comment">// eslint-disable-line</span>
+        <span class="token constant">DEFAULT</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">css</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">table</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">thead</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">border</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">tr</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">border</span><span class="token operator">:</span> <span class="token string">&quot;none&quot;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string-property property">&quot;tr:last-child&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">borderBottomWidth</span><span class="token operator">:</span> <span class="token string">&quot;0&quot;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">th</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">verticalAlign</span><span class="token operator">:</span> <span class="token string">&quot;bottom&quot;</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">borderWidth</span><span class="token operator">:</span> <span class="token string">&quot;2px&quot;</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">borderColor</span><span class="token operator">:</span> <span class="token function">theme</span><span class="token punctuation">(</span><span class="token string">&quot;colors.gray[400]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">backgroundColor</span><span class="token operator">:</span> <span class="token function">theme</span><span class="token punctuation">(</span><span class="token string">&quot;colors.gray[200]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">padding</span><span class="token operator">:</span> <span class="token string">&quot;4px 8px&quot;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string-property property">&quot;th &gt; p, td &gt; p&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">margin</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">td</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">verticalAlign</span><span class="token operator">:</span> <span class="token string">&quot;top&quot;</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">borderWidth</span><span class="token operator">:</span> <span class="token string">&quot;2px&quot;</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">borderColor</span><span class="token operator">:</span> <span class="token function">theme</span><span class="token punctuation">(</span><span class="token string">&quot;colors.gray[300]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token literal-property property">backgroundColor</span><span class="token operator">:</span> <span class="token function">theme</span><span class="token punctuation">(</span><span class="token string">&quot;colors.gray[100]&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token string-property property">&quot;tbody td:first-child&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">paddingLeft</span><span class="token operator">:</span> <span class="token string">&quot;auto&quot;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;@tailwindcss/typography&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;@tailwindcss/line-clamp&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br></div></div><h2 id="shortcut" tabindex="-1"><a class="header-anchor" href="#shortcut" aria-hidden="true">#</a> Shortcut</h2><p>You can also use <code>getTailwindConfig</code> and do the following in your <code>tailwind.config.js</code>:</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">import</span> getTailwindConfig <span class="token keyword">from</span> <span class="token string">&quot;@lawandorga/components&quot;</span><span class="token punctuation">;</span>
+
+content <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token string">&quot;./src/**/*.{vue,js,ts,jsx,tsx}&quot;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token function">getTailwindConfig</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><!--]--></div></article></main><!--]--><!--]--></div>
+    <script type="module" src="/assets/app.2d6b4786.js" defer></script>
+  </body>
+</html>

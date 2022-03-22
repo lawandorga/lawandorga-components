@@ -1,0 +1,1 @@
+import{o as t,b as r,i as o}from"./app.2d6b4786.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const a={},c={class:"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"};function n(e,p){return t(),r("th",c,[o(e.$slots,"default")])}var _=s(a,[["render",n]]);export{_ as default};

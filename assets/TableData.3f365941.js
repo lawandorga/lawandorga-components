@@ -1,0 +1,1 @@
+import{o as t,b as r,i as o}from"./app.2d6b4786.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const a={},c={class:"whitespace-nowrap px-6 py-4 text-sm text-gray-500"};function n(e,_){return t(),r("td",c,[o(e.$slots,"default")])}var f=s(a,[["render",n]]);export{f as default};

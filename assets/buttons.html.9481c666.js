@@ -1,0 +1,1 @@
+const t={key:"v-a4149d90",path:"/components/buttons.html",title:"Buttons",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"ButtonNormal.vue",slug:"buttonnormal-vue",children:[{level:3,title:"Code",slug:"code",children:[]}]}]};export{t as data};

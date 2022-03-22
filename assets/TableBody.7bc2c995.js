@@ -1,0 +1,1 @@
+import{o,b as r,i as t}from"./app.2d6b4786.js";import{_ as s}from"./plugin-vue_export-helper.21dcd24c.js";const a={},c={class:"bg-white divide-y divide-gray-200"};function d(e,i){return o(),r("tbody",c,[t(e.$slots,"default")])}var f=s(a,[["render",d]]);export{f as default};
