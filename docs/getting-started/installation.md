@@ -4,6 +4,17 @@
 npm install @lawandorga/components
 ```
 
+You also need to install the peer dependencies that those components need:
+```sh
+npm install @headlessui/vue @heroicons/vue
+```
+
+You also need the additional Tailwind CSS packages:
+```sh
+npm install @tailwindcss/line-clamp @tailwindcss/typography
+```
+
+
 ## Setup
 
 Setup Tailwind CSS according to their [docs](https://tailwindcss.com/docs/installation) and use the following config. You need to change the content settings according to your project. But leave `node_modules/@lawandorga/components/dist/index.mjs` there, because Tailwind CSS should not purge the css classes of the components library.
@@ -72,7 +83,6 @@ module.exports = {
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/line-clamp"),
-    require("@tailwindcss/aspect-ratio"),
   ],
 };
 ```

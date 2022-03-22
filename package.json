@@ -27,7 +27,7 @@
   "peerDependencies": {
     "@headlessui/vue": "1.x",
     "vue": "3.x",
-    "@heroicons/vue": "^1.0.6"
+    "@heroicons/vue": "1.x"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",
