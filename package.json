@@ -1,7 +1,7 @@
 {
   "name": "@lawandorga/components",
   "description": "Reusable components within the Law&Orga space.",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "author": "Daniel Mössner",
   "homepage": "https://github.com/lawandorga/lawandorga-components#readme",
   "main": "dist/index.cjs",
@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c",
-    "publish": "npm publish",
+    "publish": "npm run build && npm publish",
+    "publish-docs": "./publish-docs.sh",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
