@@ -8,6 +8,12 @@ import AlertList from "./components/AlertList.vue";
 
 export { AlertItem, AlertList };
 
+// logo
+import LogoDark from "./components/LogoDark.vue";
+import LogoLight from "./components/LogoLight.vue";
+
+export { LogoDark, LogoLight };
+
 // form
 import FormCheckbox from "./components/FormCheckbox.vue";
 import FormFile from "./components/FormFile.vue";
