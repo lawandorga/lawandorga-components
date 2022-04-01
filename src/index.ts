@@ -1,3 +1,7 @@
+/*
+// components
+*/
+
 // alert
 import AlertItem from "./components/AlertItem.vue";
 import AlertList from "./components/AlertList.vue";
@@ -69,7 +73,18 @@ import CircleLoader from "./components/CircleLoader.vue";
 
 export { CircleLoader };
 
+/* 
 // utils
-import getTailwindConfig from "./utils/getTailwindConfig";
+*/
 
-export { getTailwindConfig };
+import * as utils from "./utils";
+
+export { utils };
+
+/*
+// types
+*/
+
+import * as types from "./types";
+
+export { types };

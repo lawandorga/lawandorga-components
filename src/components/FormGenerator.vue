@@ -5,7 +5,7 @@
         <p
           v-for="(error, index) in nonFieldErrors"
           :key="index"
-          class="text-red-700 text-sm leading-tight mt-2"
+          class="mt-2 text-sm leading-tight text-red-700"
         >
           {{ error }}
         </p>
@@ -77,7 +77,7 @@
           {{ errors[field.name][0] }}
         </p>
       </div>
-      <div class="pt-2 flex items-center justify-end print:hidden">
+      <div class="flex items-center justify-end pt-2 print:hidden">
         <transition
           enter-active-class="transition duration-200 opacity-0"
           enter-class="opacity-0"
@@ -119,9 +119,9 @@ import FormInput from "./FormInput.vue";
 import FormTextarea from "./FormTextarea.vue";
 import FormSelect from "./FormSelect.vue";
 import ButtonBlue from "./ButtonNormal.vue";
-import { FormField } from "@/types/form";
+import { FormField } from "../types/form";
 import { defineComponent, PropType } from "vue";
-import { JsonModel } from "@/types/shared";
+import { JsonModel } from "../types/shared";
 import FormMultiple from "./FormMultiple.vue";
 import FormList from "./FormList.vue";
 import FormCheckbox from "./FormCheckbox.vue";

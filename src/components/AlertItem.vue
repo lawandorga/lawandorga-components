@@ -42,7 +42,7 @@
 import { defineComponent, PropType } from "vue";
 import { CheckCircleIcon, ExclamationIcon } from "@heroicons/vue/outline";
 import { XIcon } from "@heroicons/vue/solid";
-import { AlertItem } from "@/types/shared";
+import { AlertItem } from "../types/shared";
 
 export default defineComponent({
   components: {

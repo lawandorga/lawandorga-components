@@ -22,7 +22,7 @@
 import ModalFree from "./ModalFree.vue";
 import FormGenerator from "./FormGenerator.vue";
 import { defineComponent, PropType } from "vue";
-import { JsonModel } from "@/types/shared";
+import { JsonModel } from "../types/shared";
 
 export default defineComponent({
   components: {

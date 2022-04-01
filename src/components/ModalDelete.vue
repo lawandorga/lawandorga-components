@@ -96,7 +96,7 @@ import {
   DialogTitle,
 } from "@headlessui/vue";
 import ButtonBlue from "./ButtonNormal.vue";
-import { JsonModel, RequestFunction } from "@/types/shared";
+import { JsonModel, RequestFunction } from "../types/shared";
 import { XIcon } from "@heroicons/vue/outline";
 
 export default defineComponent({
