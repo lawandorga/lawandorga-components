@@ -15,7 +15,7 @@
       class="block w-full max-w-sm"
     >
       <div v-for="alert in alerts" :key="alert.id" class="w-full max-w-sm mb-4">
-        <Alert :alert="alert" @close="$emit('close', $event)" />
+        <Alert :alert="alert" @close="close($event)" />
       </div>
     </transition-group>
   </div>
@@ -38,5 +38,10 @@ export default defineComponent({
     },
   },
   emits: ["close"],
+  methods: {
+    close(item: AlertItem) {
+      this.$emit("close", item);
+    },
+  },
 });
 </script>
