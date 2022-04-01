@@ -70,9 +70,7 @@ export default defineComponent({
   },
   props: {
     head: {
-      type: Array as PropType<
-        { key: string[] | KeyFunction | string; name: string }[]
-      >,
+      type: Array as PropType<{ key: KeyFunction | string; name: string }[]>,
       required: true,
     },
     data: {
@@ -94,26 +92,13 @@ export default defineComponent({
   methods: {
     getData(
       data: JsonModel,
-      key: string | string[] | KeyFunction,
+      key: string | KeyFunction,
     ): string | number | boolean {
       if (typeof key === "function") {
         return key(data);
-      } else if (Array.isArray(key)) {
-        let newData = data as
-          | JsonModel
-          | string
-          | number
-          | boolean
-          | null
-          | string[]
-          | number[];
-        key.forEach((key) => {
-          if (newData) newData = (newData as JsonModel)[key];
-          else return "";
-        });
-        return newData as unknown as string | number | boolean;
       }
-      return data[key] as number | string | boolean;
+      if (data !== null) return data[key] as number | string | boolean;
+      return "";
     },
   },
 });

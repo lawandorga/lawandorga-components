@@ -2,18 +2,18 @@ export interface FormField {
   label: string;
   name: string;
   type:
-    | "list"
-    | "input"
-    | "select"
-    | "textarea"
-    | "tiptap"
+    | "multiple" // form multiple
+    | "list" // form list
+    | "select" // form select
+    | "textarea" // form textarea
+    | "checkbox" // form checkbox
+    | "file" // todo
+    // form input
     | "button"
-    | "checkbox"
     | "color"
     | "date"
     | "datetime-local"
     | "email"
-    | "file"
     | "hidden"
     | "image"
     | "month"

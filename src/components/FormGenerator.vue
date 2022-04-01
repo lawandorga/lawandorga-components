@@ -203,19 +203,11 @@ export default defineComponent({
     handleSubmit() {
       this.showSuccess = false;
       this.loading = true;
-      this.sendRequest(this.data);
-    },
-    sendRequest(requestData: JsonModel | FormData) {
       this.errors = {};
       this.nonFieldErrors = [];
-      if (this.fields.map((item) => item.type).includes("file")) {
-        requestData = new FormData(this.$refs.form as HTMLFormElement);
-        if (this.initial)
-          Object.keys(this.initial).forEach((key) => {
-            if (!(key in requestData))
-              (requestData as FormData).set(key, this.initial[key] as string);
-          });
-      }
+      this.sendRequest(this.data);
+    },
+    sendRequest(requestData: JsonModel) {
       this.request(requestData)
         .then((data: JsonModel) => this.handleSuccess(data))
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
