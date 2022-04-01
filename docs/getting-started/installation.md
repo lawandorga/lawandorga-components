@@ -92,12 +92,12 @@ module.exports = {
 You can also use `getTailwindConfig` and do the following in your `tailwind.config.js`:
 
 ```js
-import getTailwindConfig from "@lawandorga/components";
+const lawandorga = require("@lawandorga/components");
 
-content = [
+const content = [
   "./src/**/*.{vue,js,ts,jsx,tsx}",
 ]
 
-module.exports = getTailwindConfig(content)
+module.exports = lawandorga.utils.getTailwindConfig(content);
 ```
 
