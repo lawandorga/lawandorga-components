@@ -1,25 +1,13 @@
-export type VoidFunction = () => void;
-export type BooleanFunction = () => boolean;
+/*
+// functions
+*/
+export type RequestFunction = (...args: any[]) => Promise<any>; // eslint-disable-line
 
-export interface AlertItem {
-  id: string;
-  type: "success" | "error";
-  heading: string;
-  message: string;
-}
+/*
+// models
+*/
+export type JsonValue = string | boolean | number | null | number[] | string[];
 
-export interface JsonModel {
-  [key: string]:
-    | string
-    | boolean
-    | number
-    | number[]
-    | string[]
-    | null
-    | JsonModel;
-}
-
-export type RequestFunction = (
-  data: JsonModel, // eslint-disable-line no-unused-vars
-  ...params: any // eslint-disable-line
-) => Promise<JsonModel>;
+export type JsonModel = null | {
+  [key: string]: JsonValue | JsonModel;
+};

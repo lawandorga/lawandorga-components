@@ -1,22 +1,22 @@
 <template>
   <div
-    class="w-full bg-white shadow-lg rounded-lg pointer-events-auto ring-1 ring-black ring-opacity-5 overflow-hidden"
+    class="w-full overflow-hidden bg-white rounded-lg shadow-lg pointer-events-auto ring-1 ring-black ring-opacity-5"
   >
     <div class="p-4">
       <div class="flex items-start">
         <div class="flex-shrink-0">
           <CheckCircleIcon
             v-if="alert.type === 'success'"
-            class="h-6 w-6 text-green-400"
+            class="w-6 h-6 text-green-400"
             aria-hidden="true"
           />
           <ExclamationIcon
             v-if="alert.type === 'error'"
-            class="h-6 w-6 text-red-400"
+            class="w-6 h-6 text-red-400"
             aria-hidden="true"
           />
         </div>
-        <div class="ml-3 w-0 flex-1">
+        <div class="flex-1 w-0 ml-3">
           <p class="text-sm font-medium text-gray-900">
             {{ alert.heading }}
           </p>
@@ -24,13 +24,13 @@
             {{ alert.message }}
           </p>
         </div>
-        <div class="ml-4 flex-shrink-0 flex">
+        <div class="flex flex-shrink-0 ml-4">
           <button
             class="bg-white p-0.5 rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:bg-gray-100 focus:ring-gray-200"
             @click="close()"
           >
             <span class="sr-only">Close</span>
-            <XIcon class="h-5 w-5" aria-hidden="true" />
+            <XIcon class="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -42,7 +42,7 @@
 import { defineComponent, PropType } from "vue";
 import { CheckCircleIcon, ExclamationIcon } from "@heroicons/vue/outline";
 import { XIcon } from "@heroicons/vue/solid";
-import { AlertItem } from "../types/shared";
+import { AlertItem } from "../types/alert";
 
 export default defineComponent({
   components: {
