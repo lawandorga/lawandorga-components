@@ -1,22 +1,28 @@
 module.exports = {
   root: true,
-  env: { 
+  env: {
+    browser: true,
+    es2021: true,
     node: true,
-    'vue/setup-compiler-macros': true
-   },
-  ignorePatterns: ["!.*", "node_modules", ".vscode", ".eslintrc.js", "dist"],
+    "vue/setup-compiler-macros": true,
+  },
   extends: [
-    "plugin:vue/vue3-recommended",
+    // https://eslint.org/docs/user-guide/getting-started#configuration
     "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended",
-    "@vue/typescript/recommended",
-    "@vue/prettier",
+    // https://eslint.vuejs.org/user-guide/#usage
+    "plugin:vue/vue3-recommended",
+    // https://github.com/prettier/eslint-plugin-prettier#recommended-configuration or https://github.com/prettier/eslint-config-prettier#installation
+    "prettier",
   ],
+  // https://github.com/vuejs/vue-eslint-parser#-usage
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "@typescript-eslint/parser",
   },
+  plugins: [
+    // https://github.com/prettier/eslint-plugin-prettier#installation
+    "prettier",
+  ],
   rules: {
     "no-unused-vars": "warn",
     "vue/no-unused-components": "warn",
@@ -27,6 +33,7 @@ module.exports = {
         ignores: [],
       },
     ],
+    // https://github.com/prettier/eslint-plugin-prettier#installation
     "prettier/prettier": [
       "error",
       {

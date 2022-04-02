@@ -1,10 +1,10 @@
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
   inheritAttrs: false,
 });
-</script>
+</script> -->
 
 <script setup lang="ts">
 import { computed, toRefs } from "vue";
@@ -84,7 +84,7 @@ const isActive = computed(() => {
 </script>
 
 <template>
-  <RouterLink
+  <router-link
     v-if="isRouterLink"
     :class="{ 'router-link-active': isActive }"
     :to="item.link"
@@ -94,7 +94,7 @@ const isActive = computed(() => {
     <slot name="before" />
     {{ item.text }}
     <slot name="after" />
-  </RouterLink>
+  </router-link>
   <a
     v-else
     class="external-link"

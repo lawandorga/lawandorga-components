@@ -1,8 +1,9 @@
 import type { Page } from "@vuepress/core";
 import { path } from "@vuepress/utils";
+import { DefaultThemeLocaleOptions } from "./shared";
 import type { DefaultThemePageData } from "./types";
 
-export default (localeOptions) => {
+export default (localeOptions: DefaultThemeLocaleOptions) => {
   return {
     name: "vuepress-theme-local",
     layouts: path.resolve(__dirname, "layouts"),

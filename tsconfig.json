@@ -1,5 +1,4 @@
 {
-    "include": ["src", "types", "docs", "docs/.vuepress", "docs/.vuepress/theme/types/index.ts"],
     "compilerOptions": {
       "module": "esnext",
       "lib": ["dom", "esnext", "dom.iterable"],
@@ -26,5 +25,6 @@
       "resolveJsonModule": true,
       "isolatedModules": true
     },
-    "exclude": ["node_modules", "dist"]
+    "include": ["src/**/*", "**/.vuepress/**/*"],
+    "exclude": ["node_modules", "**/dist/**/*"]
   }
