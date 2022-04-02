@@ -1,4 +1,4 @@
-import type { NavLink } from "../../shared";
+import type { NavLink } from "../shared";
 import { useResolveRouteWithRedirect } from "./useResolveRouteWithRedirect";
 
 declare module "vue-router" {

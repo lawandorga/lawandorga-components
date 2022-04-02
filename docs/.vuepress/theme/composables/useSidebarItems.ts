@@ -16,7 +16,7 @@ import type {
   SidebarConfigArray,
   SidebarConfigObject,
   SidebarItem,
-} from "../../shared";
+} from "../shared";
 import { useNavLink, useThemeLocaleData } from ".";
 
 export type SidebarItemsRef = ComputedRef<ResolvedSidebarItem[]>;
