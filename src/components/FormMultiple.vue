@@ -19,7 +19,7 @@
                 class="flex items-center pl-2 pr-0.5 text-blue-700 border border-blue-100 rounded bg-blue-50"
               >
                 <span class="py-0.5 mr-0.5">
-                  {{ formOptions.find((o) => o.value === option)?.name }}
+                  {{ getOptionName(option) }}
                 </span>
                 <button
                   tabindex="-1"
@@ -222,6 +222,11 @@ export default defineComponent({
     },
   },
   methods: {
+    getOptionName(option: string) {
+      const foundOption = this.formOptions.find((o) => o.value === option);
+      if (foundOption) return foundOption.name;
+      return "-";
+    },
     focusInput() {
       (this.$refs.input as InstanceType<typeof ComboboxInput>).$el.focus();
     },
