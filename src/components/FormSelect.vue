@@ -1,19 +1,19 @@
 <template>
-  <label :for="name" class="block relative">
+  <label :for="name" class="relative block">
     <FormLabel :required="required" :label="label" />
-    <div class="flex mt-1 space-x-2 items-center">
+    <div class="flex items-center mt-1 space-x-2">
       <select
         :id="`form--${name}`"
         v-model="model"
         :name="name"
-        class="cursor-pointer mt-1 appearance-none block w-full pl-3 pr-6 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-lorgablue focus:border-lorgablue focus:ring-1 sm:text-sm"
+        class="block w-full py-2 pl-3 pr-6 mt-1 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none cursor-pointer focus:outline-none focus:ring-lorgablue focus:border-lorgablue focus:ring-1 sm:text-sm"
       >
         <option
           v-for="option in internalOptions"
-          :key="option.name || option"
-          :value="option.id || option.value || option"
+          :key="option.name"
+          :value="option.value"
         >
-          {{ option.name ?? option }}
+          {{ option.name }}
         </option>
       </select>
     </div>
@@ -25,6 +25,11 @@
 import FormLabel from "./FormLabel.vue";
 import FormHelptext from "./FormHelptext.vue";
 import { defineComponent, PropType } from "vue";
+
+type FormOption = { name: string; value: string | null };
+type FormOptionInput =
+  | { name?: string; value?: string | number | null; id?: number }
+  | string;
 
 export default defineComponent({
   components: {
@@ -53,9 +58,7 @@ export default defineComponent({
     },
     options: {
       required: true,
-      type: Array as PropType<
-        (string | { name: string; value: string | boolean | null })[]
-      >,
+      type: Array as PropType<FormOptionInput[]>,
     },
     required: {
       required: false,
@@ -65,13 +68,6 @@ export default defineComponent({
   },
   emits: ["update:modelValue"],
   computed: {
-    internalOptions() {
-      if (this.required) return this.options;
-      return [
-        { name: "------", value: null as string | boolean | null },
-        ...this.options,
-      ];
-    },
     model: {
       get() {
         return this.modelValue;
@@ -79,6 +75,28 @@ export default defineComponent({
       set(newValue: string | boolean | null) {
         this.$emit("update:modelValue", newValue);
       },
+    },
+    formOptions(): FormOption[] {
+      return this.options.map((o: FormOptionInput) => {
+        if (typeof o === "string")
+          return {
+            name: o,
+            value: o,
+          };
+        else {
+          let value = "-";
+          if (o.value) value = String(o.value);
+          else if (o.id) value = String(o.id);
+          return {
+            name: o.name || "-",
+            value: value,
+          };
+        }
+      });
+    },
+    internalOptions(): FormOption[] {
+      if (this.required) return this.formOptions;
+      return [{ name: "------", value: null }, ...this.formOptions];
     },
   },
 });
