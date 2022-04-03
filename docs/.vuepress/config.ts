@@ -6,6 +6,7 @@ export default {
   description: "Reusable components from Law&Orga.",
   theme: path.resolve(__dirname, "./theme"),
   themeConfig: {
+    title: "Law&Orga",
     docsDir: "docs",
     sidebar: [
       {

@@ -1,7 +1,9 @@
 import type { Page } from "@vuepress/core";
 import { path } from "@vuepress/utils";
-import { DefaultThemeLocaleOptions } from "./shared";
-import type { DefaultThemePageData } from "./types";
+import type {
+  DefaultThemePageData,
+  DefaultThemeLocaleOptions,
+} from "@vuepress/theme-default/lib/shared";
 
 export default (localeOptions: DefaultThemeLocaleOptions) => {
   return {
@@ -18,7 +20,7 @@ export default (localeOptions: DefaultThemeLocaleOptions) => {
       ["@vuepress/theme-data", { themeData: localeOptions }],
       "@vuepress/nprogress",
       // without this vuepress breaks -> bug?!
-      ["@vuepress/external-link-icon"],
+      "@vuepress/external-link-icon",
     ],
   };
 };

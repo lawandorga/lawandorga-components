@@ -2,8 +2,8 @@
 import { computed, ref, toRefs } from "vue";
 import type { PropType } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import type { ResolvedSidebarItem } from "../types/nav";
-import { isActiveSidebarItem } from "../utils";
+import type { ResolvedSidebarItem } from "@vuepress/theme-default/lib/shared";
+import { isActiveSidebarItem } from "@vuepress/theme-default/lib/client/utils";
 
 const props = defineProps({
   item: {
@@ -18,10 +18,12 @@ const props = defineProps({
 });
 
 const { item, depth } = toRefs(props);
+
 const route = useRoute();
 const router = useRouter();
 
 const isActive = computed(() => isActiveSidebarItem(item.value, route));
+
 const itemClass = computed(() => ({
   "border-transparent border-l-4 w-full block text-gray-500": true,
   "px-4 text-lg font-bold mb-3": depth.value === 0,
@@ -31,10 +33,10 @@ const itemClass = computed(() => ({
   "font-medium border-gray-600": isActive.value && depth.value === 1,
   "font-medium": isActive.value && (depth.value === 2 || depth.value === 3),
   "text-gray-800": isActive.value,
-  // collapsible: item.value.collapsible,
 }));
 
 const isOpen = ref(true);
+
 const onClick = ref<(() => void) | undefined>(undefined);
 
 if (item.value.collapsible) {
@@ -64,11 +66,6 @@ if (item.value.collapsible) {
       @keydown.enter="onClick"
     >
       {{ item.text }}
-      <span
-        v-if="item.collapsible"
-        class="arrow"
-        :class="isOpen ? 'down' : 'right'"
-      />
     </p>
 
     <ul v-show="isOpen" v-if="item.children?.length" class="space-y-1">

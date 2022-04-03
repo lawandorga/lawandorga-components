@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SidebarItem from "./SidebarItem.vue";
-import { useSidebarItems } from "../composables";
+import { useSidebarItems } from "@vuepress/theme-default/lib/client/composables";
 
 const sidebarItems = useSidebarItems();
 </script>
