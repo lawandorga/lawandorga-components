@@ -165,8 +165,9 @@ export default defineComponent({
       type: Array as PropType<string[]>,
     },
     options: {
-      required: true,
-      type: Array as PropType<FormOptionInput[]>,
+      required: false,
+      type: Array as PropType<FormOptionInput[] | undefined>,
+      default: () => [],
     },
     required: {
       required: false,
@@ -190,6 +191,7 @@ export default defineComponent({
       },
     },
     formOptions(): FormOption[] {
+      if (!this.options) return [];
       return this.options.map((o: FormOptionInput) => {
         if (typeof o === "string")
           return {
