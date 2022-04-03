@@ -7,7 +7,6 @@ export default {
   theme: path.resolve(__dirname, "./theme"),
   themeConfig: {
     docsDir: "docs",
-    sidebarDepth: 1,
     sidebar: [
       {
         text: "Getting Started",

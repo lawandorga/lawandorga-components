@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import AutoLink from "./AutoLink.vue";
-import DropdownTransition from "./DropdownTransition.vue";
 import { computed, ref, toRefs } from "vue";
 import type { PropType } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -55,7 +53,9 @@ if (item.value.collapsible) {
 
 <template>
   <li>
-    <AutoLink v-if="item.link" :class="itemClass" :item="item" />
+    <router-link v-if="item.link" :class="itemClass" :to="item.link">
+      {{ item.text }}
+    </router-link>
     <p
       v-else
       tabindex="0"
@@ -71,15 +71,13 @@ if (item.value.collapsible) {
       />
     </p>
 
-    <DropdownTransition v-if="item.children?.length">
-      <ul v-show="isOpen" class="space-y-1">
-        <SidebarItem
-          v-for="child in item.children"
-          :key="`${depth}${child.text}${child.link}`"
-          :item="child"
-          :depth="depth + 1"
-        />
-      </ul>
-    </DropdownTransition>
+    <ul v-show="isOpen" v-if="item.children?.length" class="space-y-1">
+      <SidebarItem
+        v-for="child in item.children"
+        :key="`${depth}${child.text}${child.link}`"
+        :item="child"
+        :depth="depth + 1"
+      />
+    </ul>
   </li>
 </template>

@@ -4,10 +4,8 @@ import SidebarItems from "./SidebarItems.vue";
 
 <template>
   <aside
-    class="sidebar pt-24 border-r w-72 fixed top-12 bottom-0 pb-24 overflow-y-auto"
+    class="fixed bottom-0 pt-24 pb-24 overflow-y-auto border-r sidebar w-72 top-12"
   >
-    <slot name="top" />
     <SidebarItems />
-    <slot name="bottom" />
   </aside>
 </template>

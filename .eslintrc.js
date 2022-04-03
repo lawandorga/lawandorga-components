@@ -6,6 +6,7 @@ module.exports = {
     node: true,
     "vue/setup-compiler-macros": true,
   },
+  ignorePatterns: ["!.*", "node_modules", ".vscode", ".eslintrc.js", "dist"],
   extends: [
     // https://eslint.org/docs/user-guide/getting-started#configuration
     "eslint:recommended",

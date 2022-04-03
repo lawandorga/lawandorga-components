@@ -8,7 +8,6 @@ export default (localeOptions: DefaultThemeLocaleOptions) => {
     name: "vuepress-theme-local",
     layouts: path.resolve(__dirname, "layouts"),
     templateBuild: path.resolve(__dirname, "templates/index.build.html"),
-    clientAppEnhanceFiles: path.resolve(__dirname, "clientAppEnhance.ts"),
     clientAppSetupFiles: path.resolve(__dirname, "clientAppSetup.ts"),
     extendsPage: (page: Page<DefaultThemePageData>) => {
       // save title into route meta to generate navbar and sidebar
@@ -17,6 +16,9 @@ export default (localeOptions: DefaultThemeLocaleOptions) => {
     plugins: [
       "@vuepress/prismjs",
       ["@vuepress/theme-data", { themeData: localeOptions }],
+      "@vuepress/nprogress",
+      // without this vuepress breaks -> bug?!
+      ["@vuepress/external-link-icon"],
     ],
   };
 };
