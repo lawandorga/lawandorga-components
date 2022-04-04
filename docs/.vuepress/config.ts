@@ -11,7 +11,11 @@ export default {
     sidebar: [
       {
         text: "Getting Started",
-        children: ["/getting-started/installation", "/getting-started/use"],
+        children: [
+          "/getting-started/installation",
+          "/getting-started/use",
+          "/getting-started/setup.md",
+        ],
       },
       {
         text: "Components",

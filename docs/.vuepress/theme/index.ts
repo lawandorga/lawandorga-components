@@ -11,6 +11,7 @@ export default (localeOptions: DefaultThemeLocaleOptions) => {
     layouts: path.resolve(__dirname, "layouts"),
     templateBuild: path.resolve(__dirname, "templates/index.build.html"),
     clientAppSetupFiles: path.resolve(__dirname, "clientAppSetup.ts"),
+    clientAppEnhanceFiles: path.resolve(__dirname, "clientAppEnhance.ts"),
     extendsPage: (page: Page<DefaultThemePageData>) => {
       // save title into route meta to generate navbar and sidebar
       page.routeMeta.title = page.title;

@@ -2,15 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* .language-vue {
-    line-height: 1.4!important;
-    font-size: 12px!important;
-}
-
-.line-numbers {
-    padding-top: 12px!important;
-} */
-
 @import './prism.css';
 
 @import './line-numbers.postcss';
@@ -18,3 +9,5 @@
 @import './heading.postcss';
 
 @import './progress.postcss';
+
+@import './scroll.postcss';
