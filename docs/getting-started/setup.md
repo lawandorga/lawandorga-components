@@ -53,9 +53,14 @@ The following setup is the most simple, that still works. The goal is basically 
 
 Now, to setup ESLint make sure that you have followed the VSCode setup and install the following packages. If you have `@lawandorga/components` installed you do not need to install the following packages, because they are included. But this might change in the future, so you might just install them anyway.
 
+Everything ESLint related:
+``` bash
+npm install eslint
+```
+
 Everything Typescript related:
 ``` bash
-npm install eslint @typescript-eslint/eslint-plugin
+npm install @typescript-eslint/eslint-plugin
 ```
 
 Everything Vue3 related:
