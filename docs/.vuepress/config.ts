@@ -5,6 +5,7 @@ export default {
   title: "Law&Orga Components Library",
   description: "Reusable components from Law&Orga.",
   theme: path.resolve(__dirname, "./theme"),
+  port: 4400,
   themeConfig: {
     title: "Law&Orga",
     docsDir: "docs",
