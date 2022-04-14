@@ -20,7 +20,7 @@
           :class="{
             'opacity-50 bg-gray-100 pointer-events-none': disabled,
           }"
-          @focusout="focusoutHandler()"
+          @focusout="focusoutHandler"
         />
       </div>
     </div>

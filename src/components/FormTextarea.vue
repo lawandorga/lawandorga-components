@@ -8,7 +8,7 @@
       class="block w-full px-3 py-2 mt-1 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-1 focus:ring-lorgablue focus:border-lorgablue sm:text-sm"
       :placeholder="placeholder"
       :required="required"
-      @focusout="focusoutHandler()"
+      @focusout="focusoutHandler"
     ></textarea>
     <FormHelptext :helptext="helptext" />
   </label>
