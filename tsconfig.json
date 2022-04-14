@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "jsx": "preserve",
       "module": "esnext",
       "lib": ["dom", "esnext", "dom.iterable"],
       "importHelpers": true,

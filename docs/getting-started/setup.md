@@ -28,6 +28,7 @@ You can probably change a lot within the `tsconfig.json` file and still everythi
 ```json
 {
   "compilerOptions": {
+    "jsx": "preserve",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
