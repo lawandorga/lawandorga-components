@@ -1,5 +1,5 @@
 import { FormField } from "./form";
-import { JsonValue, JsonModel } from "./shared";
+import { JsonModel } from "./shared";
 import { AlertItem } from "./alert";
 
-export type { FormField, JsonModel, JsonValue, AlertItem };
+export type { FormField, JsonModel, AlertItem };

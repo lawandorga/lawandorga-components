@@ -1,34 +1,64 @@
 <template>
-  <label :for="name" class="block relative">
+  <label :for="id" class="relative block">
     <div>
       <FormLabel :required="required" :label="label" />
     </div>
-    <div class="flex space-x-2 items-center" :class="{ 'mt-1': label }">
+    <div class="flex flex-col space-y-2" :class="{ 'mt-1': !!label }">
       <div class="relative w-full">
-        <input
-          :id="`form--${name}`"
-          :name="name"
-          type="file"
-          :required="required"
-          :disabled="disabled"
-          class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus-within:ring-1 focus-within:ring-lorgablue focus-within:border-lorgablue focus:ring-lorgablue focus:border-lorgablue sm:text-sm"
+        <div
+          class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none cursor-pointer focus:outline-none focus:ring-1 focus-within:ring-1 focus-within:ring-lorgablue focus-within:border-lorgablue focus:ring-lorgablue focus:border-lorgablue sm:text-sm"
           :class="{
             'opacity-50 bg-gray-100 pointer-events-none': disabled,
+            'outline-none ring-1 ring-blue-800 border-blue-800': focus,
           }"
-          @input="update($event)"
-        />
-        <div
-          v-if="modelValue"
-          class="absolute inset-0 left-auto flex items-center justify-center mr-4"
         >
-          <button
-            class="font-medium hover:text-opacity-75 text-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-lorgablue focus:ring-opacity-70"
-            @click.prevent="$emit('download')"
-          >
-            {{ modelValue }}
-          </button>
+          <div class="flex justify-between">
+            <div v-if="model" class="truncate">
+              <template v-if="typeof model === 'object'">
+                {{ model.name }}
+              </template>
+              <template v-else>
+                {{ model }}
+              </template>
+            </div>
+            <div v-else class="text-gray-500 group-hover:text-gray-800">
+              Choose file
+            </div>
+            <div class="flex space-x-3">
+              <slot />
+            </div>
+          </div>
+
+          <input
+            :id="id"
+            :model-value="model"
+            class="sr-only"
+            name="file"
+            type="file"
+            :required="false"
+            :disabled="disabled"
+            @focusin="focus = true"
+            @focusout="focus = false"
+            @input="changeHandler($event)"
+          />
         </div>
       </div>
+      <div
+        class="flex items-center justify-center px-5 py-4 text-gray-500 border border-gray-400 border-dashed rounded-md"
+        :class="{ 'border-gray-600 text-gray-700 bg-gray-50': dragCounter > 0 }"
+        @drop.prevent="dropHandler($event)"
+        @dragover.prevent=""
+        @dragenter="dragEnterHandler()"
+        @dragleave="dragLeaveHandler()"
+      >
+        <span class="block">or drop here</span>
+      </div>
+      <p
+        v-if="showError"
+        class="text-red-700 text-sm leading-tight ml-1.5 mt-1"
+      >
+        The data type seems to be wrong. Please make sure it's not a folder.
+      </p>
     </div>
     <FormHelptext :helptext="helptext" />
   </label>
@@ -57,7 +87,7 @@ export default defineComponent({
     modelValue: {
       required: false,
       default: "",
-      type: [String, Number, Boolean],
+      type: [String, File],
     },
     name: {
       required: false,
@@ -75,13 +105,56 @@ export default defineComponent({
       type: Boolean,
     },
   },
-  emits: ["update:modelValue", "download"],
+  emits: ["update:modelValue"],
+  data() {
+    return {
+      dragCounter: 0,
+      showError: false,
+      focus: false,
+    };
+  },
+  computed: {
+    model: {
+      get(): string | File {
+        return this.modelValue;
+      },
+      set() {
+        // never happens
+      },
+    },
+    id() {
+      return Math.random().toString();
+    },
+  },
   methods: {
-    update($event: Event) {
-      this.$emit(
-        "update:modelValue",
-        ($event.target as HTMLInputElement).value,
-      );
+    changeHandler(event: Event) {
+      const target = event.target as HTMLInputElement;
+      this.update(target);
+    },
+    dropHandler(event: DragEvent) {
+      this.dragCounter = 0;
+      const data = event.dataTransfer;
+      if (data) this.update(data);
+    },
+    dragEnterHandler() {
+      this.showError = false;
+      this.dragCounter += 1;
+    },
+    dragLeaveHandler() {
+      this.dragCounter -= 1;
+    },
+    update(target: HTMLInputElement | DataTransfer) {
+      if (target["files"] && target["files"].length > 0) {
+        const file = target["files"][0] as File;
+        if (file.type === "") {
+          // handle error it's probably a folder
+          this.showError = true;
+          this.$emit("update:modelValue", "");
+        } else {
+          // seems to be a file propagate it upwards
+          this.$emit("update:modelValue", file);
+        }
+      }
     },
   },
 });

@@ -6,8 +6,7 @@ export type RequestFunction = (...args: any[]) => Promise<any>; // eslint-disabl
 /*
 // models
 */
-export type JsonValue = string | boolean | number | null | number[] | string[];
-
-export type JsonModel = null | {
-  [key: string]: JsonValue | JsonModel;
+export type JsonModel = {
+  // [key: string]: JsonValues | JsonModel | JsonModel[];
+  [key: string]: any; // eslint-disable-line
 };

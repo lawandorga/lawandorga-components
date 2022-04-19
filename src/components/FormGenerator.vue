@@ -57,6 +57,18 @@
           :label="field.label"
           :helptext="field.helptext"
         />
+        <FormFile
+          v-else-if="field.type === 'file'"
+          v-model="data[field.name]"
+          :label="field.label"
+          :autocomplete="field.autocomplete"
+          :name="field.name"
+          :disabled="field.disabled"
+          :required="field.required"
+          :placeholder="field.placeholder"
+          :helptext="field.helptext"
+          @update:model-value="showSuccess = false"
+        />
         <FormInput
           v-else
           v-model="data[field.name]"
@@ -115,16 +127,17 @@
 </template>
 
 <script lang="ts">
-import FormInput from "./FormInput.vue";
 import FormTextarea from "./FormTextarea.vue";
 import FormSelect from "./FormSelect.vue";
-import ButtonBlue from "./ButtonNormal.vue";
-import { FormField } from "../types/form";
-import { defineComponent, PropType } from "vue";
-import { JsonModel } from "../types/shared";
 import FormMultiple from "./FormMultiple.vue";
+import FormInput from "./FormInput.vue";
+import ButtonBlue from "./ButtonNormal.vue";
+import { defineComponent, PropType } from "vue";
+import { JsonModel } from "@/types/shared";
 import FormList from "./FormList.vue";
-import FormCheckbox from "./FormCheckbox.vue";
+import FormCheckbox from "@/components/FormCheckbox.vue";
+import FormFile from "./FormFile.vue";
+import { FormField } from "@/types";
 
 export default defineComponent({
   components: {
@@ -135,6 +148,7 @@ export default defineComponent({
     FormTextarea,
     FormMultiple,
     FormList,
+    FormFile,
   },
   props: {
     fields: {
@@ -177,7 +191,7 @@ export default defineComponent({
     return {
       showSuccess: false,
       nonFieldErrors: [] as string[],
-      errors: {},
+      errors: {} as { [key: string]: string | string[] },
       data: {} as JsonModel,
       loading: false,
     };
@@ -186,9 +200,6 @@ export default defineComponent({
     initial: function (newValue) {
       this.data = Object.assign({}, newValue, this.data);
     },
-    // fields: function () {
-    //   this.data = Object.assign({}, this.initial);
-    // },
     data: {
       deep: true,
       handler(newValue) {
@@ -203,15 +214,15 @@ export default defineComponent({
     handleSubmit() {
       this.showSuccess = false;
       this.loading = true;
-      this.errors = {};
-      this.nonFieldErrors = [];
       this.sendRequest(this.data);
     },
     sendRequest(requestData: JsonModel) {
+      this.errors = {};
+      this.nonFieldErrors = [];
+
       this.request(requestData)
         .then((data: JsonModel) => this.handleSuccess(data))
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        .catch((error: any) =>
+        .catch((error) =>
           this.handleError(error.response ? error.response.data : {}),
         );
     },
@@ -220,8 +231,7 @@ export default defineComponent({
       this.loading = false;
       this.$emit("success", data);
     },
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    handleError(errors: any) {
+    handleError(errors: { [key: string]: string | string[] }) {
       if (errors.detail) {
         this.nonFieldErrors = [errors.detail as string];
       } else {

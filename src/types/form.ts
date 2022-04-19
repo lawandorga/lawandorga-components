@@ -7,7 +7,7 @@ export interface FormField {
     | "select" // form select
     | "textarea" // form textarea
     | "checkbox" // form checkbox
-    | "file" // todo
+    | "file" // form file
     // form input
     | "button"
     | "color"
