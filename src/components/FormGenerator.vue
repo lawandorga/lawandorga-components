@@ -135,7 +135,7 @@ import ButtonBlue from "./ButtonNormal.vue";
 import { defineComponent, PropType } from "vue";
 import { JsonModel } from "@/types/shared";
 import FormList from "./FormList.vue";
-import FormCheckbox from "@/components/FormCheckbox.vue";
+import FormCheckbox from "./FormCheckbox.vue";
 import FormFile from "./FormFile.vue";
 import { FormField } from "@/types";
 
