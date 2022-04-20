@@ -26,7 +26,7 @@
     </router-link>
     <div class="w-px h-8 bg-blue-700"></div>
     <img
-      src="/sponsor-cms.jpg"
+      src="../images/sponsor-cms.opt.jpeg"
       alt="CMS Stiftung"
       class="w-auto h-8 overflow-hidden rounded"
     />

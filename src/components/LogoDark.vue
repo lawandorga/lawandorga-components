@@ -28,7 +28,7 @@
     </router-link>
     <div class="w-px h-8 bg-white"></div>
     <img
-      src="/sponsor-cms.jpg"
+      src="../images/sponsor-cms.opt.jpeg"
       alt="CMS Stiftung"
       class="w-auto h-8 overflow-hidden rounded"
     />
@@ -38,6 +38,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { RouteLocationRaw } from "vue-router";
+// import cmsLogoUrl from "../images/sponsor-cms.jpg";
 
 export default defineComponent({
   props: {
@@ -45,6 +46,11 @@ export default defineComponent({
       required: true,
       type: Object as PropType<RouteLocationRaw>,
     },
+  },
+  setup() {
+    return {
+      // cmsLogoUrl,
+    };
   },
 });
 </script>
