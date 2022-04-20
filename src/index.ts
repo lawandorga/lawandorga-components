@@ -79,7 +79,7 @@ import CircleLoader from "./components/CircleLoader.vue";
 
 export { CircleLoader };
 
-/* 
+/*
 // utils
 */
 

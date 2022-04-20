@@ -1,4 +1,4 @@
-const getTailwindConfig = (content: string[]) => {
+export default function getTailwindConfig(content: string[]) {
   content.push("node_modules/@lawandorga/components/dist/index.mjs");
 
   return {
@@ -21,7 +21,8 @@ const getTailwindConfig = (content: string[]) => {
             900: "#010203",
           },
         },
-        typography: (theme: any) => ({  // eslint-disable-line
+        // eslint-disable-next-line
+        typography: (theme: any) => ({
           DEFAULT: {
             css: {
               table: {},
@@ -63,6 +64,4 @@ const getTailwindConfig = (content: string[]) => {
       require("@tailwindcss/line-clamp"),
     ],
   };
-};
-
-export default getTailwindConfig;
+}

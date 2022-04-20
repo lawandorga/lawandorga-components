@@ -15,6 +15,6 @@ export default [
         file: "dist/index.cjs",
       },
     ],
-    plugins: [vue(), typescript(), peerDepsExternal()],
+    plugins: [typescript(), vue(), peerDepsExternal()],
   },
 ];

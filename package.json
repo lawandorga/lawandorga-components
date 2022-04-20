@@ -12,7 +12,8 @@
     "build": "rollup -c",
     "publish-to-npm": "npm run build && npm version patch && npm publish",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "build2": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types"
   },
   "files": [
     "dist/*"
@@ -34,7 +35,8 @@
     "eslint": "^8.11.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.5.0"
+    "eslint-plugin-vue": "^8.5.0",
+    "vite": "^2.9.5"
   },
   "devDependencies": {
     "@tailwindcss/line-clamp": "^0.3.1",
