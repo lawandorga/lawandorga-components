@@ -6,7 +6,7 @@
   "homepage": "https://github.com/lawandorga/lawandorga-components#readme",
   "main": "dist/umd.js",
   "module": "dist/es.js",
-  "typings": "dist/src/index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "scripts": {
     "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
     "publish-to-npm": "npm run build && npm version patch && npm publish",
