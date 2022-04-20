@@ -38,7 +38,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { RouteLocationRaw } from "vue-router";
-// import cmsLogoUrl from "../images/sponsor-cms.jpg";
 
 export default defineComponent({
   props: {
@@ -46,11 +45,6 @@ export default defineComponent({
       required: true,
       type: Object as PropType<RouteLocationRaw>,
     },
-  },
-  setup() {
-    return {
-      // cmsLogoUrl,
-    };
   },
 });
 </script>
