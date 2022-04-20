@@ -67,7 +67,7 @@
 <script lang="ts">
 import FormLabel from "./FormLabel.vue";
 import FormHelptext from "./FormHelptext.vue";
-import { defineComponent } from "vue";
+import { defineComponent, PropType } from "vue";
 
 export default defineComponent({
   components: {
@@ -87,7 +87,7 @@ export default defineComponent({
     modelValue: {
       required: false,
       default: "",
-      type: [String, File],
+      type: [String, Object] as PropType<string | File>,
     },
     name: {
       required: false,
