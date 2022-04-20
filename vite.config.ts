@@ -6,13 +6,16 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // root: 'src',
+  server: {
+    port: 4500,
+  },
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
       name: "@lawandorga/components",
       fileName: (format) => `${format}.js`,
     },
-    cssCodeSplit: false,
     rollupOptions: {
       external: [
         "vue",
