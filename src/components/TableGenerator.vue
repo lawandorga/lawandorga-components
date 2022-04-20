@@ -1,24 +1,24 @@
 <template>
-  <Table>
-    <Thead>
-      <Tr class="divide-x divide-gray-200">
-        <Th v-for="item in head" :key="item.name">
+  <TableTable>
+    <TableHead>
+      <TableRow class="divide-x divide-gray-200">
+        <TableHeader v-for="item in head" :key="item.name">
           <div v-if="item.key === 'action'" class="flex justify-end space-x-3">
             <slot :name="`head-${item.key}`" />
           </div>
           <slot v-else :name="`head-${item.key}`">
             {{ item.name }}
           </slot>
-        </Th>
-      </Tr>
-    </Thead>
-    <Tbody>
-      <Tr
+        </TableHeader>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      <TableRow
         v-for="(dataItem, index) in data"
         :key="index"
         class="divide-x divide-gray-100"
       >
-        <Td v-for="headItem in head" :key="headItem.name">
+        <TableData v-for="headItem in head" :key="headItem.name">
           <div
             v-if="headItem.key === 'action'"
             class="flex justify-end space-x-3"
@@ -28,30 +28,30 @@
           <slot v-else v-bind="dataItem" :name="headItem.key">
             {{ getData(dataItem, headItem.key) }}
           </slot>
-        </Td>
-      </Tr>
-      <Tr v-show="innerLoading">
-        <Td :colspan="head.length">
+        </TableData>
+      </TableRow>
+      <TableRow v-show="innerLoading">
+        <TableData :colspan="head.length">
           <CircleLoader />
-        </Td>
-      </Tr>
-      <Tr>
-        <Td class="text-right !py-2.5" :colspan="head.length">
+        </TableData>
+      </TableRow>
+      <TableRow>
+        <TableData class="text-right !py-2.5" :colspan="head.length">
           <span v-if="!innerLoading && data">{{ data.length }} Total</span>
           <span v-else>Loading...</span>
-        </Td>
-      </Tr>
-    </Tbody>
-  </Table>
+        </TableData>
+      </TableRow>
+    </TableBody>
+  </TableTable>
 </template>
 
 <script lang="ts">
-import Table from "./TableTable.vue";
-import Td from "./TableData.vue";
-import Tbody from "./TableBody.vue";
-import Thead from "./TableHeader.vue";
-import Tr from "./TableRow.vue";
-import Th from "./TableHead.vue";
+import TableTable from "./TableTable.vue";
+import TableData from "./TableData.vue";
+import TableBody from "./TableBody.vue";
+import TableHead from "./TableHead.vue";
+import TableRow from "./TableRow.vue";
+import TableHeader from "./TableHeader.vue";
 import { defineComponent, PropType } from "vue";
 import { JsonModel } from "../types/shared";
 import CircleLoader from "./CircleLoader.vue";
@@ -60,12 +60,12 @@ type KeyFunction = (_: JsonModel) => string | number | boolean;  // eslint-disab
 
 export default defineComponent({
   components: {
-    Th,
-    Td,
-    Tbody,
-    Thead,
-    Tr,
-    Table,
+    TableHeader,
+    TableData,
+    TableBody,
+    TableHead,
+    TableRow,
+    TableTable,
     CircleLoader,
   },
   props: {

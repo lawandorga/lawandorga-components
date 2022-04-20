@@ -1,7 +1,9 @@
 <template>
-  <thead class="bg-gray-50">
+  <th
+    class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap"
+  >
     <slot />
-  </thead>
+  </th>
 </template>
 
 <script lang="ts">
