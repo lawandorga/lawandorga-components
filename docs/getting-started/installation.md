@@ -23,7 +23,7 @@ Setup Tailwind CSS according to their [docs](https://tailwindcss.com/docs/instal
 module.exports = {
   content: [
     "...",
-    "node_modules/@lawandorga/components/dist/index.mjs",
+    "node_modules/@lawandorga/components/dist/es.js",
   ],
   darkMode: "class",
   theme: {
