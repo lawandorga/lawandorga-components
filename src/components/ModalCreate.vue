@@ -23,6 +23,7 @@ import ModalFree from "./ModalFree.vue";
 import FormGenerator from "./FormGenerator.vue";
 import { defineComponent, PropType } from "vue";
 import { JsonModel } from "../types/shared";
+import { FormField } from "@/types";
 
 export default defineComponent({
   components: {
@@ -41,7 +42,7 @@ export default defineComponent({
       default: false,
     },
     fields: {
-      type: Array,
+      type: Array as PropType<FormField[]>,
       required: true,
     },
     initial: {

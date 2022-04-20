@@ -1,8 +1,6 @@
-const path = require("path");
 const { defineConfig } = require("vite");
 const vue = require("@vitejs/plugin-vue");
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import typescript from "rollup-plugin-typescript2";
+const path = require("path");
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,13 +19,15 @@ export default defineConfig({
         "@headlessui/vue",
       ],
       output: {
-        // Provide global variables to use in the UMD build
-        // Add external deps here
         globals: {
-          vue: "Vue",
+          "vue": "vue",
+          "@heroicons/vue/outline": "@heroicons/vue/outline",
+          "@heroicons/vue/solid": "@heroicons/vue/solid",
+          "@headlessui/vue": "@headlessui/vue",
+          "/sponsor-cms.jpg": "/sponsor-cms.jpg",
         },
       },
     },
   },
-  plugins: [typescript(), vue()],
+  plugins: [vue()],
 });

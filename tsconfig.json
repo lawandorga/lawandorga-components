@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+      "outDir": "dist",
       "jsx": "preserve",
       "module": "esnext",
       "lib": ["dom", "esnext", "dom.iterable"],
@@ -25,12 +26,15 @@
       "isolatedModules": true,
       "noImplicitAny": false
     },
-    "include": ["src/**/*", "**/.vuepress/**/*"],
+    "include": [
+      "src", 
+    ],
     "exclude": [
       "node_modules", 
       "dist", 
       "docs/.vuepress/dist", 
       "docs/.vuepress/.temp", 
-      "docs/.vuepress/.cache"
+      "docs/.vuepress/.cache",
+      "docs"
     ]
   }

@@ -1,9 +1,9 @@
 <template>
-  <div class="block relative">
+  <div class="relative block">
     <div>
       <FormLabel required :label="label" />
     </div>
-    <div class="flex space-x-2 items-center" :class="{ 'mt-1': !!label }">
+    <div class="flex items-center space-x-2" :class="{ 'mt-1': !!label }">
       <label class="relative leading-3">
         <Switch
           :model-value="modelValue"
@@ -52,8 +52,8 @@ export default defineComponent({
     },
     modelValue: {
       required: false,
-      default: "",
-      type: [String, Number, Boolean],
+      default: false,
+      type: Boolean,
     },
   },
   emits: ["update:modelValue"],

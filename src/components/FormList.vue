@@ -1,22 +1,22 @@
 <template>
-  <label :for="name" class="block relative">
+  <label :for="name" class="relative block">
     <FormLabel :required="required" :label="label" />
-    <div class="flex mt-2 space-x-2 items-center">
-      <div class="flex flex-col space-y-2 w-full items-start">
+    <div class="flex items-center mt-2 space-x-2">
+      <div class="flex flex-col items-start w-full space-y-2">
         <div
           v-for="key in Object.keys(value)"
           :key="key"
-          class="flex space-x-3 w-full items-center"
+          class="flex items-center w-full space-x-3"
         >
           <input
             v-model="value[key]"
             type="text"
-            class="flex-grow appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-lorgablue focus:border-lorgablue focus:ring-1 sm:text-sm"
+            class="flex-grow block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-lorgablue focus:border-lorgablue focus:ring-1 sm:text-sm"
             @change="change()"
           />
           <button
             type="button"
-            class="rounded-md p-1 hover:bg-gray-100 flex-shrink-0 border-gray-300 border focus:outline-none focus:ring-1 focus:ring-lorgablue focus:border-lorgablue"
+            class="flex-shrink-0 p-1 border border-gray-300 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-lorgablue focus:border-lorgablue"
             @click="remove(key)"
           >
             <XIcon class="w-6 h-6" />
@@ -24,7 +24,7 @@
         </div>
         <button
           type="button"
-          class="rounded-md p-1 hover:bg-gray-100 flex-shrink-0 border-gray-300 border focus:outline-none focus:ring-1 focus:ring-lorgablue focus:border-lorgablue"
+          class="flex-shrink-0 p-1 border border-gray-300 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-lorgablue focus:border-lorgablue"
           @click="add()"
         >
           <PlusIcon class="w-6 h-6" />
@@ -94,7 +94,7 @@ export default defineComponent({
       this.value[key] = "";
       this.change();
     },
-    remove(key: number) {
+    remove(key: string) {
       delete this.value[key];
       this.change();
     },
