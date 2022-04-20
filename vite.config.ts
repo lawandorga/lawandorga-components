@@ -1,6 +1,7 @@
 const { defineConfig } = require("vite");
 const vue = require("@vitejs/plugin-vue");
 const path = require("path");
+import { visualizer } from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -29,5 +30,7 @@ export default defineConfig({
       },
     },
   },
-  plugins: [vue()],
+  plugins: [vue(), visualizer((opts) => {
+    return { filename: path.join(opts.dir, "stats.html") };
+  }),],
 });
