@@ -1,5 +1,5 @@
 export default function getTailwindConfig(content: string[]) {
-  content.push("node_modules/@lawandorga/components/dist/index.mjs");
+  content.push("node_modules/@lawandorga/components/dist/es.js");
 
   return {
     content: content,
