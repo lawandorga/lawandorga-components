@@ -8,6 +8,7 @@
   "module": "dist/es.js",
   "typings": "dist/types/index.d.ts",
   "scripts": {
+    "dev": "vite",
     "build": "vite build && vue-tsc --emitDeclarationOnly && mv dist/src dist/types",
     "publish-to-npm": "npm run build && npm version patch && npm publish",
     "docs:dev": "vuepress dev docs",
