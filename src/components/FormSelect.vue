@@ -6,7 +6,8 @@
         :id="`form--${name}`"
         v-model="model"
         :name="name"
-        class="block w-full py-2 pl-3 pr-6 mt-1 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none cursor-pointer focus:outline-none focus:ring-lorgablue focus:border-lorgablue focus:ring-1 sm:text-sm"
+        class="block w-full py-2 pl-3 pr-6 mt-1 placeholder-gray-400 bg-no-repeat border border-gray-300 rounded-md shadow-sm appearance-none cursor-pointer focus:outline-none focus:ring-lorgablue focus:border-lorgablue focus:ring-1 sm:text-sm"
+        :style="style"
       >
         <option
           v-for="option in internalOptions"
@@ -69,6 +70,13 @@ export default defineComponent({
   },
   emits: ["update:modelValue"],
   computed: {
+    style() {
+      return {
+        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+        backgroundPosition: "right 0.5rem center",
+        backgroundSize: "1.5em 1.5em",
+      };
+    },
     model: {
       get() {
         return this.modelValue;
@@ -103,14 +111,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="css" scoped>
-select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 0.5rem center;
-  background-position-x: right 0.5rem;
-  background-position-y: center;
-  background-repeat: no-repeat;
-  background-size: 1.5em 1.5em;
-}
-</style>
