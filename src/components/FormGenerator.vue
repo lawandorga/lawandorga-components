@@ -156,7 +156,7 @@ export default defineComponent({
       required: true,
     },
     initial: {
-      type: Object as PropType<JsonModel>,
+      type: Object as PropType<JsonModel | null>,
       default: null,
       required: false,
     },
