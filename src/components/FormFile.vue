@@ -146,14 +146,14 @@ export default defineComponent({
     update(target: HTMLInputElement | DataTransfer) {
       if (target["files"] && target["files"].length > 0) {
         const file = target["files"][0] as File;
-        if (file.type === "") {
-          // handle error it's probably a folder
-          this.showError = true;
-          this.$emit("update:modelValue", "");
-        } else {
-          // seems to be a file propagate it upwards
-          this.$emit("update:modelValue", file);
-        }
+        // if (file.type === "") {
+        //   // handle error it's probably a folder
+        //   this.showError = true;
+        //   this.$emit("update:modelValue", "");
+        // } else {
+        // seems to be a file propagate it upwards
+        this.$emit("update:modelValue", file);
+        // }
       }
     },
   },
