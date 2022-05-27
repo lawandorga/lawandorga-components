@@ -9,6 +9,14 @@
         ]"
         :data="data"
       >
+        <template #head-action>
+          <div>
+            <button class="text-sm text-white bg-gray-900">abcdefgh</button>
+          </div>
+          <div>
+            <button class="text-sm text-white bg-gray-900">abcdefgh</button>
+          </div>
+        </template>
         <template #action>
           <button class="text-white bg-gray-900">test</button>
           <button class="text-white bg-gray-900">test</button>

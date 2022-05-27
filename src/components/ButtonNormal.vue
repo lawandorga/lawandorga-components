@@ -85,9 +85,9 @@ export default defineComponent({
       } else if (this.kind === "secondary") {
         return "border shadow-sm border-transparent text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:ring-2 focus:ring-offset-2";
       } else if (this.kind === "action") {
-        return "border border-transparent text-blue-700 hover:text-blue-900 hover:bg-blue-50 focus:border-blue-200";
+        return "inline-block border border-transparent text-blue-700 hover:text-blue-900 hover:bg-blue-50 focus:border-blue-200";
       } else if (this.kind === "delete") {
-        return "border border-transparent text-red-600 hover:text-red-700 hover:bg-red-50 focus:border-red-200";
+        return "inline-block border border-transparent text-red-600 hover:text-red-700 hover:bg-red-50 focus:border-red-200";
       } else if (this.kind === "link") {
         return "underline text-lorgablue hover:text-opacity-75 focus:ring-0";
       }
