@@ -2,14 +2,22 @@
   <TableTable>
     <TableHead>
       <TableRow class="divide-x divide-gray-200">
-        <TableHeader v-for="item in head" :key="item.name">
-          <div v-if="item.key === 'action'" class="flex justify-end space-x-3">
-            <slot :name="`head-${item.key}`" />
-          </div>
-          <slot v-else :name="`head-${item.key}`">
-            {{ item.name }}
-          </slot>
-        </TableHeader>
+        <template v-for="item in head" :key="item.name">
+          <TableHeader
+            :class="{
+              'text-right sticky right-0 space-x-3 !border-l-0':
+                item.key === 'action',
+            }"
+          >
+            <slot :name="`head-${item.key}`">
+              {{ item.name }}
+            </slot>
+            <div
+              v-if="item.key === 'action'"
+              class="absolute top-0 bottom-0 left-0 w-px h-full bg-gray-200"
+            ></div>
+          </TableHeader>
+        </template>
       </TableRow>
     </TableHead>
     <TableBody>
@@ -18,17 +26,27 @@
         :key="index"
         class="divide-x divide-gray-100"
       >
-        <TableData v-for="headItem in head" :key="headItem.name">
-          <div
-            v-if="headItem.key === 'action'"
-            class="flex justify-end space-x-3"
+        <template v-for="headItem in head" :key="headItem.name">
+          <TableData
+            :class="{
+              'sticky right-0 text-right space-x-3 !border-l-0':
+                headItem.key === 'action',
+            }"
           >
-            <slot v-bind="dataItem" name="action" />
-          </div>
-          <slot v-else v-bind="dataItem" :name="headItem.key">
-            {{ getData(dataItem, headItem.key) }}
-          </slot>
-        </TableData>
+            <slot
+              v-if="headItem.key === 'action'"
+              v-bind="dataItem"
+              name="action"
+            />
+            <slot v-else v-bind="dataItem" :name="headItem.key">
+              {{ getData(dataItem, headItem.key) }}
+            </slot>
+            <div
+              v-if="headItem.key === 'action'"
+              class="absolute top-0 bottom-0 left-0 w-px h-full bg-gray-100 !m-0"
+            ></div>
+          </TableData>
+        </template>
       </TableRow>
       <TableRow v-show="innerLoading">
         <TableData :colspan="head.length">
@@ -36,7 +54,11 @@
         </TableData>
       </TableRow>
       <TableRow>
-        <TableData class="text-right !py-2.5" :colspan="head.length">
+        <TableData />
+        <TableData
+          class="text-right !py-2.5 sticky right-0"
+          :colspan="head.length - 1"
+        >
           <span v-if="!innerLoading && data">{{ data.length }} Total</span>
           <span v-else>Loading...</span>
         </TableData>
