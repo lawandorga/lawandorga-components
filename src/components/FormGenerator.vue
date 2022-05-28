@@ -84,7 +84,7 @@
         />
         <p
           v-if="errors[field.name]"
-          class="text-red-700 text-sm leading-tight ml-1.5 mt-1"
+          class="text-red-700 text-sm leading-tight ml-1.5 mt-1 whitespace-pre-line"
         >
           {{ errors[field.name][0] }}
         </p>
