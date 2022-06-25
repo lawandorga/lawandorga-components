@@ -45,8 +45,16 @@ import ModalDelete from "./components/ModalDelete.vue";
 import ModalForm from "./components/ModalForm.vue";
 import ModalFree from "./components/ModalFree.vue";
 import ModalUpdate from "./components/ModalUpdate.vue";
+import ModalConfirm from "./components/ModalConfirm.vue";
 
-export { ModalCreate, ModalDelete, ModalForm, ModalFree, ModalUpdate };
+export {
+  ModalCreate,
+  ModalDelete,
+  ModalForm,
+  ModalFree,
+  ModalUpdate,
+  ModalConfirm,
+};
 
 // table
 import TableBody from "./components/TableBody.vue";
