@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import ButtonNormal from "@/components/ButtonNormal.vue";
+import ButtonNormal from "./ButtonNormal.vue";
 import ModalFree from "./ModalFree.vue";
 
 export default defineComponent({
