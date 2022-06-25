@@ -46,7 +46,7 @@ export default defineComponent({
       required: true,
     },
     initial: {
-      type: Object,
+      type: Object as PropType<JsonModel | null>,
       default: null,
       required: false,
     },

@@ -1,8 +1,9 @@
 {
   "recommendations": [
-    "johnsoncodehk.volar", 
-    "johnsoncodehk.vscode-typescript-vue-plugin", 
-    "dbaeumer.vscode-eslint", 
+    "vue.volar", 
+    "vue.vscode-typescript-vue-plugin", 
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss", 
     "heybourn.headwind"
   ]
 }
